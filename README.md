@@ -93,22 +93,22 @@ A backend service for managing users, plans, subscriptions, and invoices, built 
 - This triggers background tasks for generating invoices, marking overdue invoices, and sending reminders.
 
 # Project Structure
-app/
-├── crud.py                  # Database CRUD operations with error handling
-├── database.py              # SQLAlchemy engine, session, and Base setup
-├── models.py                # SQLAlchemy ORM models (User, Plan, Subscription, Invoice, Enums)
-├── schemas.py               # Pydantic schemas for data validation (UserCreate, PlanCreate, SubscriptionCreate, InvoiceOut, etc.)
-├── tasks.py                 # Celery task definitions (generate invoices, mark overdue, send reminders)
-├── celery_worker.py         # Celery app instance and beat scheduler configuration
-├── config.py                # Application configuration (environment variables, settings)
-├── main.py                  # FastAPI application initialization and route inclusion
-├── routers/                 # API route modules, each with its own FastAPI router
-│   ├── users.py             # User endpoints (create user)
-│   ├── plans.py             # Plan endpoints (create/get plan)
-│   ├── subscriptions.py     # Subscription endpoints (create/cancel subscription)
-│   ├── invoices.py          # Invoice endpoints (get invoices by user)
-│   └── test.py              # Test endpoints to trigger Celery tasks manually
-└── __init__.py              # Makes 'app' a package (optional but recommended)
+- app/
+      - crud.py                  # Database CRUD operations with error handling
+      - database.py              # SQLAlchemy engine, session, and Base setup
+      - models.py                # SQLAlchemy ORM models (User, Plan, Subscription, Invoice, Enums)
+      - schemas.py               # Pydantic schemas for data validation (UserCreate, PlanCreate, SubscriptionCreate, InvoiceOut, etc.)
+      - tasks.py                 # Celery task definitions (generate invoices, mark overdue, send reminders)
+      - celery_worker.py         # Celery app instance and beat scheduler configuration
+      - config.py                # Application configuration (environment variables, settings)
+- main.py                  # FastAPI application initialization and route inclusion
+- routers/                 # API route modules, each with its own FastAPI router
+      - users.py             # User endpoints (create user)
+      - plans.py             # Plan endpoints (create/get plan)
+      - subscriptions.py     # Subscription endpoints (create/cancel subscription)
+      - invoices.py          # Invoice endpoints (get invoices by user)
+      - test.py              # Test endpoints to trigger Celery tasks manually
+- __init__.py              # Makes 'app' a package (optional but recommended)
 
 # License
 - This project is licensed under the MIT License.
